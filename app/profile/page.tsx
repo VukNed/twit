@@ -17,7 +17,7 @@ const UsersPage = () => {
                 cursor: 'pointer',
               }}
             >
-        Go to Home
+        Go to Home 
             </button>
     </Link></div>
     <div>Profile</div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <div className="body">
+      <div>
         <h1>Feed</h1>
 
         <div>Suggested Posts</div>
@@ -14,6 +14,8 @@ export default function Home() {
 
         <div>Recent</div>
         <Link href="/profile">Profile</Link>
+        <div></div>
+        <Link href="/gpt">GPT</Link>
       </div>
     </main>
       )
