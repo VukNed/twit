@@ -105,23 +105,20 @@ export default function ProfilePage() {
   const [user, setUser] = useState<User | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   // Fetch user and posts data
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const userRes = await fetch(`https://dummyjson.com/users/${id}`);
-        if (!userRes.ok) throw new Error("User not found.");
         const userData = await userRes.json();
         setUser(userData);
 
         const postsRes = await fetch(`https://dummyjson.com/posts/user/${id}`);
-        if (!postsRes.ok) throw new Error("Posts not found.");
         const postsData = await postsRes.json();
         setPosts(postsData.posts);
       } catch (error) {
-        setError(error instanceof Error ? error.message : "An unexpected error occurred.");
+        console.error("Error fetching user data:", error);
       } finally {
         setLoading(false);
       }
@@ -131,25 +128,12 @@ export default function ProfilePage() {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center mt-10">
-        <div className="spinner-border animate-spin border-4 border-t-4 border-blue-500 rounded-full w-16 h-16"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <p className="text-center mt-10 text-red-500">{error}</p>;
+    return <p className="text-center mt-10">Loading...</p>;
   }
 
   if (!user) {
     return <p className="text-center mt-10 text-red-500">User not found.</p>;
   }
-
-  // Dynamic page title
-  useEffect(() => {
-    document.title = `${user.firstName} ${user.lastName} - Profile`;
-  }, [user]);
 
   return (
     <main className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
