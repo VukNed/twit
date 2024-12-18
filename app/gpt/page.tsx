@@ -1,12 +1,21 @@
 "use client";
 
+interface Post {
+  id: number;
+  body: string;
+  likes: number;
+  views: number;
+}
+
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Profile() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
+  
 
   useEffect(() => {
     fetch("https://dummyjson.com/posts")
