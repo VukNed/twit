@@ -107,7 +107,8 @@ export default function Profile() {
                   <span>#tag1</span> <span>#tag2</span> <span>#tag3</span>
                 </div>
                 <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-                  <span>{post.likes} Likes</span>
+                  <span>{post.reactions.likes} Likes</span>
+                  <span>{post.reactions.dislikes} Shares</span>
                   <span>{post.views} Views</span>
                 </div>
               </div>

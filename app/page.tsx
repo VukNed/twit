@@ -197,7 +197,8 @@ export default function Home() {
             {whoToFollow.map((user) => (
               <div key={user.id} className="p-4 border rounded text-center">
                 <Link href={`/profile/${user.id}`}>
-                  <p className="font-bold hover:underline cursor-pointer">{user.name}</p>
+                  <p className="font-bold hover:underline cursor-pointer">{user.firstName} {user.lastName}</p>
+                  <p className="font-bold hover:underline cursor-pointer">{user.username}</p>
                 </Link>
                 <p className="text-sm text-gray-500">@{user.username}</p>
               </div>
