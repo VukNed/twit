@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 export default {
   content: [
@@ -12,6 +13,24 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ['Roboto Flex', 'sans-serif'],
+      },
+      fontWeight: {
+        heading: 800, // For headings
+        body: 500,    // For body text
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              fontFamily: 'Roboto Flex',
+              fontWeight: '800',
+              fontStretch: '150%',
+            }
+          }
+        }
+      }
     },
   },
   plugins: [],

@@ -292,7 +292,9 @@ export default function ProfilePage() {
                   ))}
                 </div>
                 <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-                  <span>{post.likes} Likes</span>
+                  <span>{post.reactions.likes} Likes</span>
+                  <span>{post.reactions.dislikes} Shares</span>
+                  <span>{post.views} Views</span>
                 </div>
               </div>
             ))}

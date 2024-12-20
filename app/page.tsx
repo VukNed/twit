@@ -173,8 +173,8 @@ export default function Home() {
   return (
     <main>
       {/* Full-width Header */}
-      <header className="bg-white shadow p-4 w-full">
-        <h1 className="text-2xl font-bold text-center">Feed</h1>
+      <header className="bg-white shadow p-4 w-full mb-2">
+        <h1 className="text-2xl  text-center font-roboto" >Feed</h1>
       </header>
 
       {/* Main Content */}
@@ -192,19 +192,40 @@ export default function Home() {
 
         {/* Who to Follow */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Who to Follow</h2>
-          <div className="grid grid-cols-2 gap-4">
-            {whoToFollow.map((user) => (
-              <div key={user.id} className="p-4 border rounded text-center">
-                <Link href={`/profile/${user.id}`}>
-                  <p className="font-bold hover:underline cursor-pointer">{user.firstName} {user.lastName}</p>
-                  <p className="font-bold hover:underline cursor-pointer">{user.username}</p>
-                </Link>
-                <p className="text-sm text-gray-500">@{user.username}</p>
-              </div>
-            ))}
-          </div>
+  <h2 className="text-xl font-semibold mb-4">Who to Follow</h2>
+  <div className="grid grid-cols-2 gap-4">
+    {whoToFollow.map((user) => (
+      <div
+        key={user.id}
+        className="flex items-center p-4 border border-gray-200 rounded-lg bg-white shadow-sm"
+      >
+      {/* Clickable Avatar */}
+        <Link href={`/profile/${user.id}`} className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 mr-4">
+          <img
+            src={user.image || "/default-avatar.png"}
+            alt={`${user.firstName} ${user.lastName}'s avatar`}
+            className="w-full h-full object-cover"
+          />
+        </Link>
+
+      {/* Clickable Username */}
+        <div className="flex-grow">
+          <Link href={`/profile/${user.id}`}>
+            <p className="font-semibold text-gray-800 hover:underline">
+              {user.firstName} {user.lastName}
+            </p>
+          </Link>
+          <p className="text-sm text-gray-500">@{user.username}</p>
         </div>
+        <button
+          className="px-4 py-2 text-sm font-semibold text-purple-600 border border-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-colors"
+        >
+          Follow
+        </button>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* Recent Posts */}
         <div>
