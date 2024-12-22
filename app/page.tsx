@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Post {
   id: number;
@@ -90,22 +91,62 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
+
       <section className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
         {/* Suggested Posts */}
-        <div className="mb-8">
+          <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Suggested Posts</h2>
           {suggestedPosts.map((post) => (
-            <div key={`suggested-${post.id}`} className="p-4 border rounded mb-2">
-              <p>{post.body}</p>
-              <p className="text-gray-500">{post.likes} Likes</p>
-            </div>
-          ))}
+            <div key={`suggested-${post.id}`} className="flex flex-col p-4 bg-white border rounded-lg shadow-lg mb-4">
+
+      {/* User Avatar and Info */}
+
+      <div className="flex items-center space-x-4 mb-4">
+        <Link href={`/profile/${post.userId}`}>
+          <img
+            src="/pfp.png"  // Replace with actual image URL
+            alt={`User ${post.userId}'s avatar`}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+        </Link>
+        <div>
+          <Link href={`/profile/${post.userId}`}>
+            <p className="font-semibold text-gray-800 hover:underline">User {post.userId}</p>
+          </Link>
+          <p className="text-sm text-gray-500">@username</p> {/* Replace with actual username */}
+        </div>
+      </div>
+
+      {/* Post Content */}
+
+      <div className="flex-grow flex flex-col justify-between">
+        
+        <p className="text-gray-800 ml-6">{post.body}</p>
+
+        {/* Post Interactions */}
+        <div className="flex items-center space-x-4 text-sm text-gray-500 mt-4">
+          <span>{post.reactions.likes} Likes</span>
+          <span>{post.views} Views</span>
         </div>
 
+        {/* Post Tags */}
+        <div className="mt-2 flex flex-wrap space-x-2 text-blue-500 text-xs">
+          {post.tags.map((tag) => (
+            <span key={tag} className="bg-gray-100 px-2 py-1 rounded-full">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
         {/* Who to Follow */}
-        <div className="mb-8">
+<div className="mb-8">
   <h2 className="text-xl font-semibold mb-4">Who to Follow</h2>
-  <div className="grid grid-cols-2 gap-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     {whoToFollow.map((user) => (
       <div
         key={user.id}
@@ -113,10 +154,12 @@ export default function Home() {
       >
       {/* Clickable Avatar */}
         <Link href={`/profile/${user.id}`} className="w-10 h-10 rounded-full overflow-hidden bg-gray-200 mr-4">
-          <img
-            src={user.image || "/default-avatar.png"}
-            alt={`${user.firstName} ${user.lastName}'s avatar`}
-            className="w-full h-full object-cover"
+        <Image
+            src="/pfp.png" 
+            alt="User Avatar"
+            width={32}
+            height={32}
+            className="rounded-full"
           />
         </Link>
 
@@ -147,7 +190,13 @@ export default function Home() {
               <div className="flex items-center space-x-2 mb-2">
                 <Link href={`/profile/${post.userId}`}>
                   <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold cursor-pointer hover:bg-gray-400">
-                    U
+                    <Image
+                      src="/pfp.png" 
+                      alt="User Avatar"
+                      width={32}
+                      height={32}
+                      className="rounded-full"
+                    />
                   </div>
                 </Link>
                 <Link href={`/profile/${post.userId}`}>
