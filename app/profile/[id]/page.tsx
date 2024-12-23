@@ -68,7 +68,14 @@ export default function ProfilePage() {
       {/* Top Bar */}
       <div className="w-full flex items-center justify-between bg-white mb-2 shadow-md py-4 px-6">
         <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">
-          &lt;
+          {/* &lt; */}
+          <Image
+            src="/left.png" 
+            alt="User Avatar"
+            width={20}
+            height={20}
+            className="mr-2"
+          /> 
         </Link>
         <h1 className="text-xl font-semibold text-gray-800">Profile</h1>
         <div></div> {/* Empty div to balance flex space */}
@@ -86,7 +93,7 @@ export default function ProfilePage() {
               width={100}
               height={100}
               className="rounded-full -mt-20 sm:-mt-40"
-              />
+            />
             <div className="text-center sm:text-left mt-4 sm:mt-0">
               <h1 className="text-2xl font-semibold text-gray-800">{`${user.firstName} ${user.lastName}`}</h1>
               {/* <p className="text-gray-500 text-sm">@{user.username}</p> */}
