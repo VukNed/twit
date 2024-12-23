@@ -89,9 +89,21 @@ export default function ProfilePage() {
               />
             <div className="text-center sm:text-left mt-4 sm:mt-0">
               <h1 className="text-2xl font-semibold text-gray-800">{`${user.firstName} ${user.lastName}`}</h1>
-              <p className="text-gray-500 text-sm">@{user.username}</p>
-              <p className="text-gray-500 text-sm">{user.email}</p>
-              <p className="text-gray-500 text-sm">{user.address.state}, {user.address.country}</p>
+              {/* <p className="text-gray-500 text-sm">@{user.username}</p> */}
+              {/* <p className="text-gray-500 text-sm">{user.email}</p> */}
+              <p className="text-gray-500 text-sm">
+                <div className="flex dispay justify center p-2">
+                <p className="text-gray-500 text-sm mr-2">@{user.username}</p>
+                  <Image
+                    src="/location.png" 
+                    alt="User Avatar"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  /> 
+                  {user.address.state}, {user.address.country}
+                </div>
+              </p>
               <p className="bg-blue-100 text-blue-600 rounded-lg p-2 inline-block px-2 py-1">{user.company.department}</p>
 
 
