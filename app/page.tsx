@@ -28,6 +28,8 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
+  
+
   const fetchPosts = async () => {
     setLoading(true);
     const res = await fetch(`https://dummyjson.com/posts?limit=5&skip=${(page - 1) * 5}`);
@@ -87,12 +89,12 @@ export default function Home() {
     <main>
       {/* Full-width Header */}
       <header className="bg-white shadow p-4 w-full mb-2">
-        <h1 className="text-2xl  text-center font-roboto" >Feed</h1>
+        <h1 className="text-2xl  text-center roboto" >Feed</h1>
       </header>
 
       {/* Main Content */}
 
-      <section className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+      <section className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg roboto">
         {/* Suggested Posts */}
           <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Suggested Posts</h2>
@@ -101,7 +103,7 @@ export default function Home() {
 
       {/* User Avatar and Info */}
 
-      <div className="flex items-center space-x-4 mb-4">
+      <div className="flex items-center space-x-4 mb-4 roboto">
         <Link href={`/profile/${post.userId}`}>
           <img
             src="/pfp.png"
@@ -119,7 +121,7 @@ export default function Home() {
 
       {/* Post Content */}
 
-      <div className="flex-grow flex flex-col justify-between">
+      <div className="flex-grow flex flex-col justify-between roboto">
         
         <p className="text-gray-800 ml-6">{post.body}</p>
 
@@ -233,7 +235,7 @@ export default function Home() {
               </div>
               <p>{post.body}</p>
               <span>
-            <div className="flex p-2">
+            <div className="flex p-2 ">
               <Image
                 src="/like.png" 
                 alt="User Avatar"

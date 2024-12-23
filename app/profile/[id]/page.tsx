@@ -64,7 +64,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="w-full bg-gray-100 min-h-screen px-4 sm:px-6">
+    <div className="w-full bg-gray-100 min-h-screen px-4 sm:px-6 roboto">
       {/* Top Bar */}
       <div className="w-full flex items-center justify-between bg-white mb-2 shadow-md py-4 px-6">
         <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">
@@ -92,7 +92,7 @@ export default function ProfilePage() {
               {/* <p className="text-gray-500 text-sm">@{user.username}</p> */}
               {/* <p className="text-gray-500 text-sm">{user.email}</p> */}
               <p className="text-gray-500 text-sm">
-                <div className="flex dispay justify center p-2">
+                <div className="flex flex-col lg:flex-row justify-center items-center space-y-4 lg:space-y-0 p-2">
                 <p className="text-gray-500 text-sm mr-2">@{user.username}</p>
                   <Image
                     src="/location.png" 
