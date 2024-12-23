@@ -12,6 +12,13 @@ interface User {
   username: string;
   email: string;
   image: string;
+  address: {
+    state: string;
+    country: string;
+  };
+  company: {
+    department: string;
+  };
 }
 
 interface Post {
@@ -61,7 +68,7 @@ export default function ProfilePage() {
       {/* Top Bar */}
       <div className="w-full flex items-center justify-between bg-white mb-2 shadow-md py-4 px-6">
         <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">
-          &larr; Back
+          &lt;
         </Link>
         <h1 className="text-xl font-semibold text-gray-800">Profile</h1>
         <div></div> {/* Empty div to balance flex space */}
@@ -72,18 +79,22 @@ export default function ProfilePage() {
         <div className="relative">
           <div className="w-full h-32 bg-gradient-to-r from-purple-300 to-yellow-100 rounded-t-lg"></div>
 
-          <div className="relative bg-white p-6 rounded-lg shadow-lg -mt-16 flex items-center space-x-6">
-            <Image
+          <div className="relative bg-white p-6 rounded-lg shadow-lg -mt-16 flex flex-col sm:flex-row items-center sm:space-x-6">
+            <Image className="relative p-6"
               src="/pfp.png" 
               alt="User Avatar"
               width={100}
               height={100}
-              className="rounded-full -mt-24"
+              className="rounded-full -mt-20 sm:-mt-40"
               />
-            <div>
+            <div className="text-center sm:text-left mt-4 sm:mt-0">
               <h1 className="text-2xl font-semibold text-gray-800">{`${user.firstName} ${user.lastName}`}</h1>
               <p className="text-gray-500 text-sm">@{user.username}</p>
               <p className="text-gray-500 text-sm">{user.email}</p>
+              <p className="text-gray-500 text-sm">{user.address.state}, {user.address.country}</p>
+              <p className="bg-blue-100 text-blue-600 rounded-lg p-2 inline-block px-2 py-1">{user.company.department}</p>
+
+
               <div className="mt-4 flex space-x-4">
               <button className="px-4 py-2 text-sm font-semibold text-purple-600 border border-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-colors">
                 Follow

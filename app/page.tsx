@@ -104,7 +104,7 @@ export default function Home() {
       <div className="flex items-center space-x-4 mb-4">
         <Link href={`/profile/${post.userId}`}>
           <img
-            src="/pfp.png"  // Replace with actual image URL
+            src="/pfp.png"
             alt={`User ${post.userId}'s avatar`}
             className="w-12 h-12 rounded-full object-cover"
           />
@@ -125,7 +125,8 @@ export default function Home() {
 
         {/* Post Interactions */}
         <div className="flex items-center space-x-4 text-sm text-gray-500 mt-4">
-          <span>{post.reactions.likes} Likes</span>
+          <span>{post.reactions.likes} Likes
+           </span>
           <span>{post.views} Views</span>
         </div>
 
@@ -157,8 +158,8 @@ export default function Home() {
         <Image
             src="/pfp.png" 
             alt="User Avatar"
-            width={32}
-            height={32}
+            width={50}
+            height={50}
             className="rounded-full"
           />
         </Link>
@@ -206,7 +207,7 @@ export default function Home() {
                 </Link>
               </div>
               <p>{post.body}</p>
-              <p className="text-gray-500">{post.likes} Likes</p>
+              <p className="text-gray-500">{post.reactions.likes} Likes</p>
             </div>
           ))}
         </div>
