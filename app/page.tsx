@@ -125,9 +125,34 @@ export default function Home() {
 
         {/* Post Interactions */}
         <div className="flex items-center space-x-4 text-sm text-gray-500 mt-4">
-          <span>{post.reactions.likes} Likes
+          <span>
+            <div className="flex">
+              <Image
+                src="/like.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2"
+              /> 
+                {post.reactions.likes}  Likes 
+              <Image
+                src="/send.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2 ml-2"
+              /> 
+                {post.reactions.dislikes}  Shares 
+              <Image
+                src="/view.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2 ml-2"
+              /> 
+                <span>{post.views} Views</span>
+            </div>
            </span>
-          <span>{post.views} Views</span>
         </div>
 
         {/* Post Tags */}
@@ -207,7 +232,34 @@ export default function Home() {
                 </Link>
               </div>
               <p>{post.body}</p>
-              <p className="text-gray-500">{post.reactions.likes} Likes</p>
+              <span>
+            <div className="flex p-2">
+              <Image
+                src="/like.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2"
+              /> 
+                {post.reactions.likes}  Likes 
+              <Image
+                src="/send.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2 ml-2"
+              /> 
+                {post.reactions.dislikes}  Shares 
+              <Image
+                src="/view.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2 ml-2"
+              /> 
+                <span>{post.views} Views</span>
+            </div>
+           </span>
             </div>
           ))}
         </div>

@@ -124,9 +124,34 @@ export default function ProfilePage() {
                   ))}
                 </div>
                 <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-                  <span>{post.reactions.likes} Likes</span>
-                  <span>{post.reactions.dislikes} Shares</span>
-                  <span>{post.views} Views</span>
+          <span>
+            <div className="flex">
+              <Image
+                src="/like.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2"
+              /> 
+                {post.reactions.likes}  Likes 
+              <Image
+                src="/send.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2 ml-2"
+              /> 
+                {post.reactions.dislikes}  Shares 
+              <Image
+                src="/view.png" 
+                alt="User Avatar"
+                width={20}
+                height={20}
+                className="mr-2 ml-2"
+              /> 
+                <span>{post.views} Views</span>
+            </div>
+           </span>
                 </div>
               </div>
             ))}
